@@ -4,15 +4,15 @@ Playing around with [@shumai](/facebookresearch/shumai). All testing is being do
 
 ## Experiments
 
-[**Linear**](./linear.ts)
+[**Linear**](./models/linear.ts)
 
 Learns a simple linear function based on thousands of random examples.
 
-[**AutoEncoder (COMING SOON)**]()
+[**AutoEncoder (COMING SOON)**](.)
 
 VAE for learning compressed representations of images.
 
-[**Conv2D (COMING SOON)**]() 
+[**Conv2D (COMING SOON)**](.) 
 
 Conv net for face recognition
 

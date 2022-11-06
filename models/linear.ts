@@ -1,9 +1,8 @@
-/**
- * learn a simple linear function. Get familiar with the basic tensor operators
- * provided by @shumai.
- */
+/** Learn a simple linear function */
+
 import * as sm from "@shumai/shumai";
 
+// TODO(aduffy): Replace with modules
 class LinearModel {
   private _n: number;
 
@@ -14,8 +13,8 @@ class LinearModel {
     this.weights = sm.randn([n]).requireGrad();
   }
 
-  // Expects to be passed an M x N dimensional tensor of xs inputs,
-  // and an N dimensional tensor of the ys ground-truth outputs.
+  // Expects to be passed an n-element tensor of features for X and
+  // a 1-element tensor for Y.
   train(X: sm.Tensor, Y: sm.Tensor) {
     const y_hat = this.weights.matmul(X);
     const loss = sm.loss.mse(y_hat, Y);
@@ -23,8 +22,6 @@ class LinearModel {
       string,
       { grad: sm.Tensor; tensor: sm.Tensor }
     >;
-
-    // Run the optimizer against the list of differentiable tensors.
     sm.optim.sgd(ts, 1e-3);
   }
 
@@ -49,10 +46,6 @@ for (let i = 0; i < 10000; i++) {
 }
 console.log("training complete");
 
-// See if we can apply forward and get the expected result
-
 const result = model.predict(sm.tensor(new Float32Array([1, 2, 3])));
-console.log(result.toFloat32Array());
-console.log(model.weights.toFloat32Array());
-
-// Have our dumb little holdout set here as well.
+console.log("result", result.toFloat32Array());
+console.log("learned params", model.weights.toFloat32Array());
