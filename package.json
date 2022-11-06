@@ -1,0 +1,12 @@
+{
+  "name": "shumai-yolo",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^0.2.2",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@shumai/shumai": "^0.0.8"
+  }
+}
